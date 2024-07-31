@@ -1,0 +1,27 @@
+<div class="grid-header-container">
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="assets/images/Logo.png" alt="Logo FixPrint" class="logo" routerLink="/home">
+        </div>
+        <div class="buttons-container" *ngIf="isLoggedIn">
+            <button class="nav-orange-button title-card" routerLink="/incidencias" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO' || userRole === 'ROL_ADMIN'">Incidencias</button>
+            <button class="nav-orange-button title-card" routerLink="/pedidos" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO' || userRole === 'ROL_ADMIN'">Pedidos</button>
+            <button class="nav-orange-button title-card" routerLink="/usuario" *ngIf="userRole === 'ROL_ADMIN'">Gestión de usuarios</button>
+            <button class="nav-orange-button title-card" routerLink="/usuario" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO'">Área de usuario</button>
+            <button (click)="logout()" class="nav-blue-button title-card" routerLink="" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO' || userRole === 'ROL_ADMIN'">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+<div class="nav-tablet-container">
+    <div class="buttons-nav-tablet-container" *ngIf="isLoggedIn">
+        <div class="buttons-nav-tablet-container1">
+            <button class="nav-orange-button title-card" routerLink="/incidencias" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO' || userRole === 'ROL_ADMIN'">Incidencias</button>
+            <button class="nav-orange-button title-card" routerLink="/pedidos" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO' || userRole === 'ROL_ADMIN'">Pedidos</button>
+        </div>
+        <div class="buttons-nav-tablet-container2">
+            <button class="nav-orange-button title-card" routerLink="/usuario" *ngIf="userRole === 'ROL_ADMIN'">Gestión de usuarios</button>
+            <button class="nav-orange-button title-card" routerLink="/usuario" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO'">Área de usuario</button>
+            <button (click)="logout()" class="nav-blue-button title-card" routerLink="" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO' || userRole === 'ROL_ADMIN'">Cerrar sesión</button>
+        </div>
+    </div>
+</div>

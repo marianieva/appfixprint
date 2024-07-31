@@ -1,0 +1,27 @@
+<div class="table-tec-almacen">
+    <table class="text-card card-shadow">
+    <thead>
+        <tr>
+            <th>ID producto</th>
+            <th>Producto</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="loading">
+            <td colspan="6">Cargando datos...</td>
+        </tr>
+        <tr *ngIf="error">
+            <td colspan="6">{{ error }}</td>
+        </tr>
+        <tr *ngIf="!loading && !error && productos.length === 0">
+            <td colspan="6">No hay datos disponibles</td>
+        </tr>
+        <tr *ngFor="let producto of productos">
+            <td>{{ producto.idProducto }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.stock }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

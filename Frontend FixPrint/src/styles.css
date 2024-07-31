@@ -1,0 +1,216 @@
+/** 
+
+***************************
+    STORYBOOK -- COLORS 
+***************************
+
+*/
+
+/** --- BASE COLORS --- */
+:root {
+    --white: #FDFCFC;
+    --light-gray: #EFF0F3;
+    --dark-gray: #D5D6D9;
+  }
+
+/** --- GRADIENT COLORS --- */
+:root {
+    --dark-gradient: linear-gradient(to top right, #0F0558 50%, #F7AA02 81%);
+    --light-gradient: linear-gradient(to top right, #FEC659 0%, #DEEDFF 38%);
+}
+
+.dark-gradient {
+    background-image: var(--dark-gradient);
+}
+
+.light-gradient {
+    background-image: var(--light-gradient);
+}
+
+/** --- BRAND COLORS --- */
+:root {
+    --dark-blue: #0F0558;
+    --medium-blue: #579AFF;
+    --light-blue: #DEEDFF;
+
+    --dark-orange: #F7AA02;
+    --medium-orange: #FFDE95;
+    --light-orange: #FFF6E3;
+
+    --contrast-color: #FF007F;
+} 
+
+/** --- FEEDBACK COLORS --- */
+:root {
+    --success-color: #86CB52;
+    --info-color: #90B5FB;
+    --warning-color: #FFF56B;
+    --error-color: #F14F50;
+}
+
+/** 
+
+*******************************
+    STORYBOOK -- FONT FAMILY
+*******************************
+
+*/
+:root {
+    --title-XL-font: "Crimson Text", serif;
+    --title-XL-font-size: 56px;
+    --title-XL-font-weight: bold;
+    --title-XL-letter-spacing: 0;
+
+    --title-M-font: "Crimson Text", serif;
+    --title-M-font-size: 40px;
+    --title-M-font-weight: 600;
+    --title-M-letter-spacing: 0;
+
+    --title-card-font: "Roboto", sans-serif;
+    --title-card-font-size: 20px;
+    --title-card-font-weight: bold;
+    --title-card-letter-spacing: 0;
+
+    --text-description-font: "Roboto", sans-serif;
+    --text-description-font-size: 20px;
+    --text-description-spacing: 0;
+
+    --text-card-font: "Roboto", sans-serif;
+    --text-card-font-size: 16px;
+    --text-card-spacing: 0;
+}
+
+.title-XL {
+    font-family: var(--title-XL-font);
+    font-size: var(--title-XL-font-size);
+    font-weight: var(--title-XL-font-weight);
+    letter-spacing: var(--title-XL-letter-spacing);
+    color:var(--dark-blue);
+}
+
+.title-M {
+    font-family: var(--title-M-font);
+    font-size: var(--title-M-font-size);
+    font-weight: var(--title-M-font-weight);
+    letter-spacing: var(--title-M-letter-spacing);
+    color:var(--dark-blue);
+}
+
+.title-card {
+    font-family: var(--title-card-font);
+    font-size: var(--title-card-font-size);
+    font-weight: var(--title-card-font-weight);
+    letter-spacing: var(--title-card-letter-spacing);
+    color:var(--dark-blue);
+}
+
+.text-description {
+    font-family: var(--text-description-font);
+    font-size: var(--text-description-font-size);
+    letter-spacing: var(--text-description-spacing);
+    color:var(--dark-blue);
+}
+
+.text-card {
+    font-family: var(--text-card-font);
+    font-size: var(--text-card-font-size);
+    letter-spacing: var(--text-card-spacing);
+    color:var(--dark-blue);
+}
+
+/* RESPONSIVE TEXTOS */
+
+@media screen and (max-width: 768px) {
+    .title-XL {
+        font-size: 2.5rem;
+    }
+    .title-M {
+        font-size: 2rem;
+    }
+    .title-card {
+        font-size: 0.75rem;
+    }
+    .text-description {
+        font-size: 1.25rem;
+    }
+    .text-card {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .title-XL {
+        font-size: 2rem;
+    }
+    .title-M {
+        font-size: 1.5rem;
+    }
+    .title-card {
+        font-size: 0.75rem;
+    }
+    .text-description {
+        font-size: 1rem;
+    }
+    .text-card {
+        font-size: 0.75rem;
+    }
+}
+
+/** 
+
+*****************************
+    STORYBOOK -- SHADOWS
+*****************************
+
+*/
+
+:root {
+    --button-box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.20);
+    --avatar-box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.4);
+    --card-box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.10);
+    --profile-box-shadow: 6px 6px 4px rgba(4, 87, 186, 0.41);
+    --shadow-margin-bottom: 6px;
+    --shadow-margin-right: 6px;
+}
+
+.button-shadow {
+    box-shadow: var(--button-box-shadow);
+    margin-bottom: var(--shadow-margin-bottom);
+    margin-right: var(--shadow-margin-right);
+}
+
+.avatar-shadow {
+    box-shadow: var(--avatar-box-shadow);
+    margin-bottom: var(--shadow-margin-bottom);
+    margin-right: var(--shadow-margin-right);
+}
+
+.card-shadow {
+    box-shadow: var(--card-box-shadow);
+    margin-bottom: var(--shadow-margin-bottom);
+    margin-right: var(--shadow-margin-right);
+}
+
+.profile-shadow {
+    box-shadow: var(--profile-box-shadow);
+    margin-bottom: var(--shadow-margin-bottom);
+    margin-right: var(--shadow-margin-right);
+}
+
+/** 
+
+*****************************
+    STORYBOOK -- ERROR
+*****************************
+
+*/
+
+.error {
+    color: var(--error-color);
+    text-align: center;
+}
+
+.success {
+    color: var(--success-color);
+    text-align: center;
+}

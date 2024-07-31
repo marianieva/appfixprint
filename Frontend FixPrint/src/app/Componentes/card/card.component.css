@@ -1,0 +1,51 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    width: 100%;
+    border: 2px solid var(--dark-blue);
+    background-color: var(--light-gray);
+    justify-content: center;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin: 16px;
+}
+
+.img_card {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+    }
+    .img_card {
+        width: 80%;
+    }
+    .card {
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .img_card {
+        width: 60%;
+    }
+}

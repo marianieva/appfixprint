@@ -1,0 +1,15 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+@import '../../../styles/body-common-styles.css';
+
+.login-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.login-form-container {
+    margin-top: 56px;
+    margin-bottom: 96px;
+}

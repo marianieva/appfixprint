@@ -1,0 +1,24 @@
+<div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="nav-blue-button title-card" (click)="close()">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="modalType === 'profile'">
+            <app-form-modificar-usuario></app-form-modificar-usuario>
+        </ng-container>
+        <ng-container *ngIf="modalType === 'password'">
+            <app-form-modificar-password></app-form-modificar-password>
+        </ng-container>
+        <ng-container *ngIf="modalType === 'new-user'">
+            <app-form-admin-alta-usuario></app-form-admin-alta-usuario>
+        </ng-container>
+        <ng-container *ngIf="modalType === 'update-user'">
+          <app-form-admin-modificar-usuario></app-form-admin-modificar-usuario>
+        </ng-container>
+        <ng-container *ngIf="modalType === 'new-print'">
+            <app-form-admin-impresora></app-form-admin-impresora>
+        </ng-container>
+      </div>
+    </div>
+  </div>

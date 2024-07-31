@@ -1,0 +1,30 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-incidencias-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & button {
+        width: 100%;
+        margin: 4px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .admin-incidencias-buttons{
+        flex-direction: column;
+    }
+}
+
+.table-admin-incidencias {
+    max-height: 600px;
+    overflow-y: auto;
+  }

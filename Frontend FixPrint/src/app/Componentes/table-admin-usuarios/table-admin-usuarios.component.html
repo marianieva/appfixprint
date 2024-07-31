@@ -1,0 +1,54 @@
+<div class="admin-usuarios-buttons-show">
+    <button class="btn-filter-inc nav-orange-button title-card" (click)="showNewUser()">Nuevo usuario</button>
+    <button class="btn-filter-inc nav-orange-button title-card" (click)="showNewPrint()">Nuevo equipo</button>
+    <app-modal [showModal]="showModal" [modalType]="modalType" (closeModal)="closeModal()"></app-modal>
+</div>
+<div class="admin-usuarios-buttons">
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('all')">Todos los usuarios</button>
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('tecnicos')">Técnicos</button>
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('clientes')">Clientes</button>
+</div>
+<div class="title-container title-M">
+    <p class="title-text" *ngIf="currentView === 'all'">Todos los usuarios</p>
+    <p class="title-text" *ngIf="currentView === 'tecnicos'">Técnicos</p>
+    <p class="title-text" *ngIf="currentView === 'clientes'">Clientes</p>
+</div>
+<div class="table-admin-usuarios">
+    <table class="text-card card-shadow">
+        <thead>
+            <tr>
+                <th>Nombre y apellidos</th>
+                <th>Username</th>
+                <th>Dirección</th>
+                <th>Zona</th>
+                <th>Rol</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="loading">
+                <td colspan="6">Cargando datos...</td>
+            </tr>
+            <tr *ngIf="error">
+                <td colspan="6">{{ error }}</td>
+            </tr>
+            <tr *ngIf="!loading && !error && usuarios.length === 0">
+                <td colspan="6">No hay datos disponibles</td>
+            </tr>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.nombre }} {{ usuario.apellidos }}</td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.direccion }}</td>
+                <td>{{ usuario.zona.nombreZona }}</td>
+                <td>        
+                    <ng-container *ngFor="let rol of usuario.roles; let i = index">
+                        {{ getRoleLabel(rol.rolNombre) }}<span *ngIf="i < usuario.roles.length - 1">, </span>
+                    </ng-container>
+                </td>
+                <td class="table-buttons-options">
+                    <button (click)="showUpdateUser(usuario.idUsuario)" class="button-form first-button text-card">Modificar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

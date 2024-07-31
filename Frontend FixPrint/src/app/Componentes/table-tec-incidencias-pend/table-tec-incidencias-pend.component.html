@@ -1,0 +1,38 @@
+<div class="table-tec-incidencias">
+    <table class="text-card card-shadow">
+        <thead>
+            <tr>
+                <th>ID incidencia</th>
+                <th>Equipo</th>
+                <th>Descripción</th>
+                <th>Comentario</th>
+                <th>Fecha alta</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="loading">
+                <td colspan="6">Cargando datos...</td>
+            </tr>
+            <tr *ngIf="error">
+                <td colspan="6">{{ error }}</td>
+            </tr>
+            <tr *ngIf="!loading && !error && incidencias.length === 0">
+                <td colspan="6">No hay datos disponibles</td>
+            </tr>
+            <tr *ngFor="let incidencia of incidencias">
+                <td>{{ incidencia.idIncidencia }}</td>
+                <td>{{ incidencia.serialNumber.serialNumber }}</td>
+                <td>{{ incidencia.descripcionCliente }}</td>
+                <td>{{ incidencia.comentarioTecnico  || 'No hay comentario' }}</td>
+                <td>{{ incidencia.fechaAlta }}</td>
+                <td class="table-buttons-options">
+                    <button id="{{ incidencia.idIncidencia }}" class="button-form first-button text-card">Iniciar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="button-container">
+    <button class="button-large nav-blue-button title-card" routerLink="/pedidos">Ir a página de pedidos de recambios</button>
+</div>

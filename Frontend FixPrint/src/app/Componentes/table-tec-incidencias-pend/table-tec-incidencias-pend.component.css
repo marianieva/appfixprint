@@ -1,0 +1,16 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.table-tec-incidencias{
+    margin-bottom: 24px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}

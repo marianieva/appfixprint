@@ -1,0 +1,9 @@
+<div class="slider-container">
+    <div class="slides">
+        <img src="assets/images/slider/slide-incidencias.png" alt="Slide Incidencias" class="slide" routerLink="/pedidos">
+        <img src="assets/images/slider/slide-pedidos.png" alt="Slide Pedidos" class="slide" routerLink="/incidencias">
+        <img src="assets/images/slider/slide-usuarios.png" alt="Slide Gestion de Usuarios" class="slide" *ngIf="userRole === 'ROL_ADMIN'" routerLink="/usuario">
+    </div>
+    <button class="prev first-button" onclick="plusSlides(-1)">❮</button>
+    <button class="next first-button" onclick="plusSlides(1)">❯</button>
+</div>

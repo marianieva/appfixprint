@@ -1,0 +1,26 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+@import '../../../styles/body-common-styles.css';
+
+.first-body-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button {
+    width: 70%;
+}
+
+@media screen and (max-width:600px) {
+    button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .error-image {
+        width: 100%;
+    }
+}

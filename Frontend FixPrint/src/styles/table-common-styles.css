@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    & th {
+        padding: 16px;
+        background-color: var(--light-blue);
+    }
+
+    & tr td {
+        padding: 8px;
+    }
+
+    & tr:nth-child(odd) {
+        background-color: var(--light-gray);
+    }
+    & tr:nth-child(even) {
+        background-color: var(--white);
+    }
+
+    & 
+    thead th:first-child {
+        border-top-left-radius: 8px;
+    }
+    
+    & thead th:last-child {
+        border-top-right-radius: 8px;
+    }
+}
+
+.button-form {
+    margin:4px;
+    font-weight: bold;
+}

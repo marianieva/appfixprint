@@ -1,0 +1,46 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-usuarios-buttons, .admin-usuarios-buttons-show {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & .btn-filter-inc {
+        width: 100%;
+        margin: 4px;
+    }
+} 
+
+.admin-usuarios-buttons-show {
+    margin-bottom: 16px;
+}
+
+.table-buttons-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:600px) {
+    .admin-usuarios-buttons{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .table-buttons-options {
+        flex-direction: column;
+    }
+}
+
+.table-admin-usuarios {
+    max-height: 600px;
+    overflow-y: auto;
+  }

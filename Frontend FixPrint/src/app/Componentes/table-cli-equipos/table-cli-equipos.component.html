@@ -1,0 +1,28 @@
+<div class="table-cli-equipos">
+<table class="text-card card-shadow">
+    <thead>
+        <tr>
+            <th>Nº de serie</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="loading">
+            <td colspan="6">Cargando datos...</td>
+        </tr>
+        <tr *ngIf="error">
+            <td colspan="6">{{ error }}</td>
+        </tr>
+        <tr *ngIf="!loading && !error && equipos.length === 0">
+            <td colspan="6">No hay datos disponibles</td>
+        </tr>
+        <tr *ngFor="let equipo of equipos">
+            <td>{{ equipo.serialNumber }}</td>
+            <td>{{ equipo.marca }}</td>
+            <td>{{ equipo.modelo }}</td>
+
+        </tr>
+    </tbody>
+</table>
+</div>

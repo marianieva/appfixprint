@@ -1,0 +1,35 @@
+<div class="grid-body-container">
+    <div class="back-home">
+        <button class="button-back-home nav-blue-button title-card" routerLink="/home">Volver al inicio</button>
+    </div>
+    <div class="first-body-container" *ngIf="userRole === 'ROL_CLIENTE'  || userRole === 'ROL_TECNICO'">
+        <div class="title-second-body-container title-M">
+            <p class="title-text">Mi Perfil</p>
+        </div>
+        <div class="profile-container">
+            <app-profile-card></app-profile-card>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_CLIENTE'">
+        <div class="title-second-body-container title-M">
+            <p class="title-text">Tabla de equipos contratados</p>
+        </div>
+        <div class="table-container">
+            <app-table-cli-equipos></app-table-cli-equipos>
+        </div>
+        <div class="button-container">
+            <button class="button-large nav-blue-button title-card" routerLink="/pedidos">Abrir incidencia</button>
+            <button class="button-large nav-blue-button title-card" routerLink="/pedidos">Realizar pedido</button>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_ADMIN'">
+        <div class="table-container">
+            <app-table-admin-usuarios></app-table-admin-usuarios>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_TECNICO'">
+        <div class="table-container">
+            <p> </p>
+        </div>
+    </div>
+</div>

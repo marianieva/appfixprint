@@ -1,0 +1,35 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-pedidos-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & button {
+        width: 100%;
+        margin: 4px;
+    }
+}
+
+.table-buttons-options {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 880px) {
+    .table-buttons-options {
+        flex-direction: column;
+    }
+}
+
+.table-admin-pedidos {
+    max-height: 600px;
+    overflow-y: auto;
+  }

@@ -1,0 +1,32 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.textarea {
+    height: auto;
+    width: 90%;
+}
+
+.form-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.form-ppal-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-bottom-container {
+    width: 100%;
+}
+
+@media screen and (max-width:800px) {
+    .form-ppal-container {
+        flex-direction: column;
+        width: auto;
+    }
+    .form-bottom-container {
+        width: auto;
+    }
+}

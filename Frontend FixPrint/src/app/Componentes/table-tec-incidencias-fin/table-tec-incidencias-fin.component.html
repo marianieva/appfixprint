@@ -1,0 +1,47 @@
+<div class="admin-incidencias-buttons">
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('all')">Todas las incidencias</button>
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('finalized')">Incidencias finalizadas</button>
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('pending')">Incidencias pendientes</button>
+</div>
+<div class="title-container title-M">
+    <p class="title-text" *ngIf="currentView === 'all'">Todas las incidencias</p>
+    <p class="title-text" *ngIf="currentView === 'finalized'">Incidencias finalizadas</p>
+    <p class="title-text" *ngIf="currentView === 'pending'">Incidencias pendientes</p>
+</div>
+<div class="table-tec-incidencias">
+    <table class="text-card card-shadow">
+        <thead>
+            <tr>
+                <th>ID incidencia</th>
+                <th>Equipo</th>
+                <th>Comentario</th>
+                <th>Fecha inicio</th>
+                <th>Fecha fin</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="loading">
+                <td colspan="7">Cargando datos...</td>
+            </tr>
+            <tr *ngIf="error">
+                <td colspan="7">{{ error }}</td>
+            </tr>
+            <tr *ngIf="!loading && !error && incidencias.length === 0">
+                <td colspan="7">No hay datos disponibles</td>
+            </tr>
+            <tr *ngFor="let incidencia of incidencias">
+                <td>{{ incidencia.idIncidencia }}</td>
+                <td>{{ incidencia.marca + ' ' + incidencia.modelo }}</td>
+                <td>{{ incidencia.comentarioTecnico  || 'No hay comentario' }}</td>
+                <td>{{ incidencia.fechaInicio }}</td>
+                <td>{{ incidencia.fechaFin }}</td>
+                <td>{{ incidencia.estado }}</td>
+                <td class="table-buttons-options">
+                    <button id="{{ incidencia.idIncidencia }}" class="button-form first-button text-card" [disabled] = "incidencia.estado === 'ENCURSO' || incidencia.estado === 'CANCELADA' || incidencia.estado === 'TERMINADA'" (click)="iniciarIncidencia(incidencia.idIncidencia)">Iniciar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

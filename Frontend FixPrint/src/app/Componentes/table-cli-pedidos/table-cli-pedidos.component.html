@@ -1,0 +1,35 @@
+<div class="table-cli-pedidos">
+    <table class="text-card card-shadow">
+    <thead>
+        <tr>
+            <th>ID pedido</th>
+            <th>Fecha</th>
+            <th>Productos</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="loading">
+            <td colspan="6">Cargando datos...</td>
+        </tr>
+        <tr *ngIf="error">
+            <td colspan="6">{{ error }}</td>
+        </tr>
+        <tr *ngIf="!loading && !error && pedidos.length === 0">
+            <td colspan="6">No hay datos disponibles</td>
+        </tr>
+        <tr *ngFor="let pedido of pedidos">
+            <td>{{ pedido.idPedido }}</td>
+            <td>{{ pedido.fechaPedido }}</td>
+            <td>
+                <p *ngFor="let detalle of pedido.detalles">{{ detalle.producto.nombre }}</p>
+            </td>
+            <td>
+                <p *ngFor="let detalle of pedido.detalles">{{ detalle.cantidad }}</p>
+            </td>
+            <td>{{ pedido.estado }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

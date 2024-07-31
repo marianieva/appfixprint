@@ -1,0 +1,26 @@
+<div class="title-form title-M">
+    <p>Formulario para modificar datos personales</p>
+</div>
+<form class="form-modificar-usuario-container form-container one-column" (ngSubmit)="updateUser2()">
+    <div class="form-first-column title-card">
+        <div class="input">
+            <p>Username:</p>
+            <input type="text" class="input text-card" placeholder="{{user.username}}" name="username" [(ngModel)]="username">
+        </div>
+        <div class="input">
+            <p>Nombre:</p>
+            <input type="text" class="input text-card" placeholder="{{user.nombre}}" name="nombre" [(ngModel)]="nombre">
+        </div>
+        <div class="input">
+            <p>Apellidos:</p>
+            <input type="text" class="input text-card" placeholder="{{user.apellidos}}" name="apellidos" [(ngModel)]="apellidos">
+        </div>
+        <div class="input">
+            <p>Dirección:</p>
+            <textarea name="direccion" id="direccion" rows="3" class="textarea text-card" placeholder="{{user.direccion}}" [(ngModel)]="direccion"></textarea>
+        </div>
+        <button type="submit" class="button-form first-button title-card">Actualizar perfil</button>
+        <p class="success text-card" *ngIf="success">Usuario modificado correctamente</p>
+        <p class="error text-card" *ngIf="error">Error al intentar modificar el usuario. Por favor, rellene todos los campos</p>
+    </div>
+</form>

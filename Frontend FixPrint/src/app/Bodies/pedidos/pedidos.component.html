@@ -1,0 +1,39 @@
+<div class="grid-body-container">
+    <div class="back-home">
+        <button class="button-back-home nav-blue-button title-card" routerLink="/home">Volver al inicio</button>
+    </div>
+    <div class="first-body-container" *ngIf="userRole === 'ROL_CLIENTE' || userRole === 'ROL_TECNICO'">
+        <div class="profile-container">
+            <app-form-cli-alta-pedido></app-form-cli-alta-pedido>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_CLIENTE'">
+        <div class="title-second-body-container title-M">
+            <p class="title-text">Tabla historico de pedidos</p>
+        </div>
+        <div class="table-container">
+            <app-table-cli-pedidos></app-table-cli-pedidos>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_TECNICO'">
+        <div class="title-second-body-container title-M">
+            <p class="title-text">Tabla histórico de pedidos</p>
+        </div>
+        <div class="table-container">
+            <app-table-cli-pedidos></app-table-cli-pedidos>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_TECNICO'">
+        <div class="title-second-body-container title-M">
+            <p class="title-text">Almacén de productos</p>
+        </div>
+        <div class="table-container">
+            <app-table-tec-almacen></app-table-tec-almacen>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_ADMIN'">
+        <div class="table-container">
+            <app-table-admin-pedidos></app-table-admin-pedidos>
+        </div>
+    </div>
+</div>

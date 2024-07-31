@@ -1,0 +1,22 @@
+@import '../../../styles/form-common-styles.css';
+@import '../../../styles/button-common-styles.css';
+@import '../../../styles/table-common-styles.css';
+
+.table-cli-incidencias{
+    margin-bottom: 24px;
+}
+.table-buttons-options {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 970px) {
+    .table-buttons-options {
+        flex-direction: column;
+    }
+}
+
+.table-cli-incidencias {
+    max-height: 400px;
+    overflow-y: auto;
+  }

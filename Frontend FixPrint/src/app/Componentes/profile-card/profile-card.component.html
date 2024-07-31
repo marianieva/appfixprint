@@ -1,0 +1,21 @@
+<div class="profile-card profile-shadow">
+    <div class="profile-photo avatar-shadow"  *ngIf="userRole === 'ROL_CLIENTE'">
+        <img src="assets/images/profile/foto-perfil-cliente.jpg" alt="Foto perfil" class="img_card">
+    </div>
+    <div class="profile-photo avatar-shadow"  *ngIf="userRole === 'ROL_TECNICO'">
+        <img src="assets/images/profile/foto-perfil-tecnico.jpg" alt="Foto perfil" class="img_card">
+    </div>
+    <div class="profile-second-column">
+        <div class="profile-content text-description">
+            <p>Nombre: <span>{{ user?.nombre }}</span></p>
+            <p>Apellidos: <span>{{ user?.apellidos }}</span></p>
+            <p>Dirección: <span>{{ user?.direccion }}</span></p>
+            <p>Zona: <span>{{ user?.zona?.nombreZona }}</span></p>
+        </div>
+        <div class="profile-button text-description">
+            <button class="button-update-profile nav-blue-button text-description" (click)="openModal()">Modificar perfil</button>
+            <button class="button-update-profile nav-blue-button text-description" (click)="openModalPass()">Modificar contraseña</button>
+            <app-modal [showModal]="showModal" [modalType]="modalType" (closeModal)="closeModal()"></app-modal>
+        </div>
+    </div>
+</div>

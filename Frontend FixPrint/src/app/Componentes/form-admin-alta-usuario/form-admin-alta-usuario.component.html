@@ -1,0 +1,51 @@
+<div class="title-form title-M">
+  <p>Formulario para dar de alta usuarios</p>
+</div>
+<form (ngSubmit)="signUp()" class="form-admin-alta-usuario-container form-container">
+  <div class="form-first-column title-card">
+    <div class="input">
+      <p>Username:</p>
+      <input type="text" class="input text-card" placeholder="Username" [(ngModel)]="username" name="username" required>
+    </div>
+    <div class="input">
+      <p>Password:</p>
+      <textarea name="password" id="password" rows="3" class="textarea text-card" placeholder="Indique su pass" [(ngModel)]="password" required></textarea>
+    </div>
+    <div class="input">
+      <p>Nombre:</p>
+      <input type="text" class="input text-card" placeholder="Nombre" [(ngModel)]="nombre" name="nombre" required>
+    </div>
+    <div class="input">
+      <p>Apellidos:</p>
+      <input type="text" class="input text-card" placeholder="Apellidos" [(ngModel)]="apellidos" name="apellidos" required>
+    </div>
+    <div class="input">
+      <p>Dirección:</p>
+      <textarea name="direccion" id="direccion" rows="3" class="textarea text-card" placeholder="Indique su dirección" [(ngModel)]="direccion" required></textarea>
+    </div>
+  </div>
+  <div class="form-second-column title-card">
+    <div class="input">
+      <p>Zona:</p>
+      <select name="zona" id="select-zona" class="select text-card" [(ngModel)]="zona" required>
+        <option *ngFor="let zona of todasZonas" [value]="zona.idZona">
+            {{ zona.nombreZona }}
+        </option>
+      </select>
+    </div>
+    <div class="input">
+      <p>Rol:</p>
+      <select name="rol" id="select-rol" class="select text-card" [(ngModel)]="rol" required>
+        <option *ngFor="let role of todosRoles" [value]="role.rolNombre">
+          {{ getRoleLabel(role.rolNombre) }}
+        </option>
+      </select>
+    </div>
+    <button class="button-form first-button title-card" type="submit">Crear usuario</button>
+    <p class="error text-card" *ngIf="error">Error al dar de alta nuevo usuario</p>
+    <p class="success text-card" *ngIf="success">Usuario dado de alta correctamente</p>
+  </div>
+</form>
+
+
+

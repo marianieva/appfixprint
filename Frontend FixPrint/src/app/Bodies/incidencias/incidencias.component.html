@@ -1,0 +1,50 @@
+<div class="grid-body-container">
+    <div class="back-home">
+        <button class="button-back-home nav-blue-button title-card" routerLink="/home">Volver al inicio</button>
+    </div>
+    <div class="first-body-container" *ngIf="userRole === 'ROL_CLIENTE'">
+        <!-- <div class="title-first-body-container title-M">
+            <p class="title-text">Formulario alta pedido consumibles</p>
+        </div> -->
+        <div class="profile-container">
+            <app-form-cli-incidencia></app-form-cli-incidencia>
+        </div>
+    </div>
+    <div class="first-body-container" *ngIf="userRole === 'ROL_TECNICO'">
+        <div class="profile-container">
+            <app-table-tec-incidencias-fin></app-table-tec-incidencias-fin>
+        </div>
+    </div>
+    <div class="first-body-container" *ngIf="userRole === 'ROL_ADMIN'">
+        <!-- <div class="title-first-body-container title-M">
+            <p class="title-text">Incidencias terminadas</p>
+        </div> -->
+        <div class="admin-incidencias-fin-container">
+            <app-table-admin-incidencias-fin></app-table-admin-incidencias-fin>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_CLIENTE'">
+        <div class="title-second-body-container title-M">
+            <p class="title-text">Tabla historico de incidencias</p>
+        </div>
+        <div class="table-container">
+            <app-table-cli-incidencias></app-table-cli-incidencias>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_TECNICO'">
+        <!-- <div class="title-second-body-container title-M">
+            <p class="title-text">Formulario incidencia</p>
+        </div> -->
+        <div class="table-container">
+            <app-form-tec-incidencia></app-form-tec-incidencia>
+        </div>
+    </div>
+    <div class="second-body-container" *ngIf="userRole === 'ROL_ADMIN'">
+        <!-- <div class="title-second-body-container title-M">
+            <p class="title-text">Formulario incidencia</p>
+        </div> -->
+        <div class="table-container">
+            <app-form-admin-incidencia></app-form-admin-incidencia>
+        </div>
+    </div>
+</div>

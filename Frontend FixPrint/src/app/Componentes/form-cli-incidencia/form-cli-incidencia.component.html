@@ -1,0 +1,23 @@
+<div class="title-form title-M">
+    <p>Formulario para notificar una incidencia</p>
+</div>
+<form class="form-cli-incidencia-container form-container one-column" (ngSubmit)="newIncidenciaAdmin()">
+    <div class="form-first-column title-card">
+        <div class="input">
+            <p>Seleccione su equipo:</p>
+            <select name="equipo" id="select-equipo" class="select text-card" [(ngModel)]="serialNumber" required>
+                <option class="error text-card" *ngIf="equipos.length === 0" disabled>No tiene impresoras</option>
+                <option *ngFor="let equipo of equipos" [value]="equipo.serialNumber">
+                  {{ equipo.marca }} {{ equipo.modelo }}
+                </option>
+            </select>
+        </div>
+        <div class="input">
+            <p>Observaciones:</p>
+            <textarea name="observaciones" id="observaciones" rows="3" class="textarea text-card" placeholder="Indique su incidencia" [(ngModel)]="descripcionCliente"></textarea>
+        </div>
+        <button type="submit" class="button-form first-button title-card">Enviar incidencia</button>
+        <p class="error text-card" *ngIf="error">Error al enviar incidencia</p>
+        <p class="success text-card" *ngIf="success">Incidencia enviada correctamente</p>
+    </div>
+</form>

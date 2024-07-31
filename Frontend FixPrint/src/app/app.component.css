@@ -1,0 +1,19 @@
+@import '../styles/button-common-styles.css';
+@import '../styles/form-common-styles.css';
+@import '../styles/table-common-styles.css';
+@import '../styles/body-common-styles.css';
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* Divide la pantalla en 12 columnas de igual ancho */
+    max-width: 1100px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+  
+app-header, .router-outlet, app-footer {
+    grid-column: 2 / span 10; /* Los componentes ocupan 10 columnas centradas */
+}
+
+app-footer {
+    height: auto;
+}

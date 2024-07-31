@@ -1,0 +1,65 @@
+@import './form-common-styles.css';
+@import './button-common-styles.css';
+@import './table-common-styles.css';
+
+.grid-body-container {
+    height: auto;
+    width: 100%;
+    background-color: var(--light-orange);
+    top: 150px;
+}
+
+/* BOTON VOLVER AL INICIO */
+
+.back-home {
+    display: flex;
+    align-items: end;
+    margin-right: 32px;
+    flex-direction: row-reverse;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 880px) {
+    .back-home {
+        margin-right: 40px;
+    }
+}
+
+/* DIMENSIONES PRIMER CONTENEDOR */
+
+.first-body-container {
+    height: auto;
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.second-body-container {
+    height: auto;
+    margin-left: 32px;
+    margin-right: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-first-body-container, .title-second-body-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0px;
+}
+
+.title-text {
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

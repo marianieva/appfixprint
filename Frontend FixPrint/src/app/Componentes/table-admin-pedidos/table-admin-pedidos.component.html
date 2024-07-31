@@ -1,0 +1,53 @@
+<div class="admin-pedidos-buttons">
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('all')">Todos los pedidos</button>
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('recambios')">Pedidos de recambios</button>
+    <button class="btn-filter-inc nav-blue-button title-card" (click)="changeView('consumibles')">Pedidos de consumibles</button>
+</div>
+<div class="title-container title-M">
+    <p class="title-text" *ngIf="currentView === 'all'">Todos los pedidos</p>
+    <p class="title-text" *ngIf="currentView === 'recambios'">Pedidos de recambios</p>
+    <p class="title-text" *ngIf="currentView === 'consumibles'">Pedidos de consumibles</p>
+</div>
+<div class="table-admin-pedidos">
+    <table class="text-card card-shadow">
+        <thead>
+            <tr>
+                <th>ID pedido</th>
+                <th>Usuario</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Productos: Cantidad</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="loading">
+                <td colspan="7">Cargando datos...</td>
+            </tr>
+            <tr *ngIf="error">
+                <td colspan="7">{{ error }}</td>
+            </tr>
+            <tr *ngIf="!loading && !error && pedidos.length === 0">
+                <td colspan="7">No hay datos disponibles</td>
+            </tr>
+            <tr *ngFor="let pedido of pedidos">
+                <td>{{ pedido.idPedido }}</td>
+                <td>{{ pedido.usuario.username }}</td>
+                <td>{{ getTypeLabel(pedido.tipoPedido) }}</td>
+                <td>{{ pedido.fechaPedido }}</td>
+                <td>
+                    <ul>
+                        <p *ngFor="let detalle of pedido.detallePedidos">
+                            {{ detalle.producto.nombre }} : {{ detalle.cantidad }}
+                        </p>
+                    </ul>
+                </td>
+                <td>{{ pedido.estado }}</td>
+                <td class="table-buttons-options">
+                    <button class="button-form first-button text-card" [disabled]="pedido.estado === 'ENVIADO'" (click)="confirmarPedido(pedido.idPedido)">Confirmar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

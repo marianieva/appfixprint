@@ -1,0 +1,21 @@
+<form (ngSubmit)="login()" class="form-login-container form-container one-column" >
+  <div class="form-first-column title-card">
+    <div class="input-login"> 
+      <label for="username">username</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+    </div>
+    
+    <div class="input-login">
+      <label for="password">password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+    </div>
+    <p class="error text-card" *ngIf="errorMessage">Error al intentar acceder. Por favor, verifique su username y su password.</p>
+    <div class="button-login">
+        <button class="nav-blue-button title-card"  type="submit">Iniciar sesión</button>
+    </div>
+    <div class="button-login">
+        <p class="text-card" (click)="openModalPass()">¿Olvidaste tu contraseña?</p>   
+        <app-modal [showModal]="showModal" [modalType]="modalType" (closeModal)="closeModal()"></app-modal>
+    </div>
+  </div>
+</form>

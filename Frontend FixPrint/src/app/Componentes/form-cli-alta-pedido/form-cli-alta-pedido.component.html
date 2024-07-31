@@ -1,0 +1,77 @@
+<div class="title-form title-M">
+    <p *ngIf="userRole === 'ROL_CLIENTE'">Formulario para realizar pedidos de consumibles</p>
+    <p *ngIf="userRole === 'ROL_TECNICO'">Formulario para realizar pedidos de recambios</p>
+</div>
+<form class="form-cli-alta-pedido-container form-container" (ngSubmit)="altaPedidoTecnico()" action="">
+    <div class="form-first-column title-card">
+        <div class="input" *ngIf="userRole === 'ROL_TECNICO'">
+            <p>Seleccione el equipo:</p>
+            <select name="equipo" id="select-equipo" class="select text-card" [(ngModel)]="equipo" (ngModelChange)="onEquipoChange()" required>
+              <option *ngFor="let equipo of equipos" [value]="equipo.serialNumber">
+                {{ equipo.marca }} - {{ equipo.modelo }}
+              </option>
+            </select>
+          </div>
+          <div class="input" *ngIf="userRole === 'ROL_TECNICO'">
+            <p>Seleccione producto:</p>
+            <select name="producto" id="select-producto" class="select text-card" [(ngModel)]="producto" required>
+              <option class="error text-card" *ngIf="productos.length === 0" disabled>No hay productos</option>
+              <option *ngFor="let producto of productos" [value]="producto.idProducto">
+                {{ producto.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="input" *ngIf="userRole === 'ROL_CLIENTE'">
+            <p>Seleccione el equipo:</p>
+            <select name="equipo" id="select-equipo" class="select text-card" [(ngModel)]="equipo" (ngModelChange)=" onEquipoChangeCliente()" required>
+              <option *ngFor="let equipo of equipos" [value]="equipo.serialNumber">
+                {{ equipo.marca }} - {{ equipo.modelo }}
+              </option>
+            </select>
+          </div>
+          <div class="input" *ngIf="userRole === 'ROL_CLIENTE'">
+            <p>Seleccione producto:</p>
+            <select name="productoConsumible" id="select-producto" class="select text-card" [(ngModel)]="productoConsumible" required>
+              <option class="error text-card" *ngIf="productosConsumibles.length === 0" disabled>No hay productos</option>
+              <option *ngFor="let productoConsumible of productosConsumibles" [value]="productoConsumible.idProducto">
+                {{ productoConsumible.nombre }}
+              </option>
+            </select>
+          </div>
+        <div class="input">
+            <p>Cantidad:</p>
+            <select name="cantidad" id="select-cantidad" class="select text-card" [(ngModel)]="cantidad">
+                <option value="1"><span>1</span></option>
+                <option value="2"><span>2</span></option>
+                <option value="3"><span>3</span></option>
+                <option value="4"><span>4</span></option>
+            </select>
+        </div>
+        <button class="button-form first-button title-card" type="button" (click)="agregarACesta()">Seleccionar</button>
+    </div>
+    <div class="form-second-column">
+        <table class="text-card card-shadow">
+            <thead>
+                <tr>
+                    <th>Nombre del producto</th>
+                    <th>Cantidad</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="cestaArray.length === 0">
+                    <td colspan="3">No hay productos en la cesta</td>
+                </tr>
+                <tr *ngFor="let producto of cestaArray">
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.cantidad }}</td>
+                    <td><img src="assets/images/icons/trash.png" alt="Icono de basura" (click)="eliminarProducto(producto.idProducto)"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="button-form first-button title-card" (click)="vaciarCesta()">Borrar pedido</button>
+        <button type="submit" class="button-form first-button title-card">Realizar pedido</button>
+        <p class="error text-card" *ngIf="error">Error al realizar pedido</p>
+        <p class="success text-card" *ngIf="success">Pedido realizado correctamente</p>
+    </div>
+</form>
